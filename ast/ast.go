@@ -423,6 +423,14 @@ type ImportStr struct {
 
 // ---------------------------------------------------------------------------
 
+// ImportBytes represents importbytes "file".
+type ImportBytes struct {
+	NodeBase
+	File *LiteralString
+}
+
+// ---------------------------------------------------------------------------
+
 // Index represents both e[e] and the syntax sugar e.f.
 //
 // One of index and id will be nil before desugaring.  After desugaring id

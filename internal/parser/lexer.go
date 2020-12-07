@@ -65,6 +65,7 @@ const (
 	tokenIf
 	tokenImport
 	tokenImportStr
+	tokenImportBytes
 	tokenIn
 	tokenLocal
 	tokenNullLit
@@ -103,23 +104,24 @@ var tokenKindStrings = []string{
 	tokenVerbatimStringSingle: "VERBATIM_STRING_SINGLE",
 
 	// Keywords
-	tokenAssert:     "assert",
-	tokenElse:       "else",
-	tokenError:      "error",
-	tokenFalse:      "false",
-	tokenFor:        "for",
-	tokenFunction:   "function",
-	tokenIf:         "if",
-	tokenImport:     "import",
-	tokenImportStr:  "importstr",
-	tokenIn:         "in",
-	tokenLocal:      "local",
-	tokenNullLit:    "null",
-	tokenSelf:       "self",
-	tokenSuper:      "super",
-	tokenTailStrict: "tailstrict",
-	tokenThen:       "then",
-	tokenTrue:       "true",
+	tokenAssert:      "assert",
+	tokenElse:        "else",
+	tokenError:       "error",
+	tokenFalse:       "false",
+	tokenFor:         "for",
+	tokenFunction:    "function",
+	tokenIf:          "if",
+	tokenImport:      "import",
+	tokenImportStr:   "importstr",
+	tokenImportBytes: "importbytes",
+	tokenIn:          "in",
+	tokenLocal:       "local",
+	tokenNullLit:     "null",
+	tokenSelf:        "self",
+	tokenSuper:       "super",
+	tokenTailStrict:  "tailstrict",
+	tokenThen:        "then",
+	tokenTrue:        "true",
 
 	// A special token that holds line/column information about the end of the
 	// file.
@@ -580,6 +582,8 @@ func getTokenKindFromID(str string) tokenKind {
 		return tokenImport
 	case "importstr":
 		return tokenImportStr
+	case "importbytes":
+		return tokenImportBytes
 	case "in":
 		return tokenIn
 	case "local":
